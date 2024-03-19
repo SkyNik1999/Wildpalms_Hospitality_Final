@@ -1,0 +1,38 @@
+/* ScrollToTopButton.css */
+
+#scrollToTopBtn {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccc;
+  color: #0c0c1d;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0;
+  padding: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#scrollToTopBtn.visible {
+  opacity: 1;
+}
+
+#scrollToTopBtn.hidden {
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  #scrollToTopBtn {
+    color: white;
+    background-color: #0c0c1d;
+    position: fixed; /* Ensure button stays in view */
+    bottom: 100px; /* Adjust the bottom position */
+    right: 20px; /* Adjust the right position */
+    z-index: 1000; /* Ensure button is above other elements */
+  }
+}
