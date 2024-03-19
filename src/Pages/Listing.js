@@ -7,6 +7,13 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
 } from '@chakra-ui/react';
+import siolim1 from '../Assets/3 bhk siolim/3bhk Siolim locations-02.png'
+import sharayu from "../Assets/Sharayu/IMG20240126175345.jpg"
+import morjim from '../Assets/morjim/WP-MOR 1-02.png'
+import bhk from '../Assets/1bhk (1).png'
+import bhk5 from '../Assets/5bh.png'
+import screen from '../Assets/Screenshot 2024-02-11 190022.png'
+
 
 const Listing = () => {
   const propertyOptions = ['House', 'Cottage', 'Flat', 'Villa', 'Luxury Villa'];
@@ -111,7 +118,7 @@ const Listing = () => {
             <div className="house">
               <div className="house-img">
                 <img
-                  src="assets/img/3 bhk siolim/3bhk Siolim locations-02.png"
+                  src={siolim1}
                   alt=""
                   className="src"
                 />
@@ -151,7 +158,7 @@ const Listing = () => {
             <div className="house">
               <div className="house-img">
                 <img
-                  src="assets/img/Sharayu/IMG20240126175345.jpg"
+                  src={sharayu}
                   alt=""
                   className="src"
                 />
@@ -193,7 +200,7 @@ const Listing = () => {
             <div className="house">
               <div className="house-img">
                 <img
-                  src="assets/img/morjim/WP-MOR 1-03.png"
+                  src={morjim}
                   alt=""
                   className="src"
                 />
@@ -235,7 +242,7 @@ const Listing = () => {
             <div className="house">
               <div className="house-img">
                 <img
-                  src="assets/img/1bhk UC/IMG20240123124403.jpg"
+                  src={bhk}
                   alt=""
                   className="src"
                 />
@@ -275,7 +282,7 @@ const Listing = () => {
 
             <div className="house">
               <div className="house-img">
-                <img src="assets/img/1bhk (1).png" alt="" className="src" />
+                <img src={bhk} alt="" className="src" />
               </div>
               <div className="house-info">
                 <p>Assagao, Goa</p>
@@ -314,7 +321,7 @@ const Listing = () => {
 
             <div className="house">
               <div className="house-img">
-                <img src="assets/img/5bh.png" alt="" className="src" />
+                <img src={bhk5} alt="" className="src" />
               </div>
               <div className="house-info">
                 <p>Vagator, Goa</p>
@@ -354,7 +361,7 @@ const Listing = () => {
             <div className="house">
               <div className="house-img">
                 <img
-                  src="assets/img/Screenshot 2024-02-11 121241.png"
+                  src={screen}
                   alt=""
                   className="src"
                 />
@@ -397,7 +404,7 @@ const Listing = () => {
             <div className="house">
               <div className="house-img">
                 <img
-                  src="assets/img/Screenshot 2024-02-11 185717.png"
+                  src={screen}
                   alt=""
                   className="src"
                 />
