@@ -31,7 +31,7 @@ const Value = () => {
           </div>
 
           <div className="value__accordion"></div>
-          <Accordion>
+          <Accordion allowToggle>
             {valueData.map((e, i) => (
               <AccordionTab
                 key={i}

@@ -6,46 +6,44 @@ const Header = () => {
   const [activeTab, setActiveTab] = useState('');
   const [atHome, setAtHome] = useState(true);
   const location = useLocation();
+  const sections = ['home', 'popular', 'value', 'contact']; // Add more section IDs if needed
 
   useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 0;
-      setScrolled(isScrolled);
-      const scrollPosition = window.scrollY;
-      const sections = ['home', 'popular', 'value', 'contact']; // Add more section IDs if needed
-
-      // Determine which section is currently in view
-      let activeSection = ''; // Default active section
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { top, bottom } = element.getBoundingClientRect();
-          if (top <= 0 && bottom > 0) {
-            activeSection = section;
-            break;
-          }
-        }
-      }
-
-      setActiveTab(activeSection);
-    };
-
     setAtHome(location.pathname === '/' || location.pathname === '/home');
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]');
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const isScrolled = scrollY > 50;
+  
+      setScrolled(isScrolled);
+
+      sections.forEach(current => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 58; // Adjusted to account for the header height
+        const sectionBottom = sectionTop + sectionHeight; // Calculate the bottom of the section
+        const sectionId = current.getAttribute('id');
+
+        if (scrollY >= sectionTop && scrollY < sectionBottom) {
+          // Adjusted comparison conditions
+          setActiveTab(sectionId);
+        }
+      });
+    };
 
     window.addEventListener('scroll', handleScroll);
 
-    // Cleanup the event listener on unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [location.pathname]);
+  }, []);
 
   const handleClick = tabId => {
     const element = document.getElementById(tabId);
-
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveTab(tabId); // Set active tab here
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   };
 
