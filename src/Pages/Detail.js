@@ -102,7 +102,7 @@ const Detail = () => {
             </div>
             <div className="guest-field">
               <label>Guest</label>
-              <Input type="number"></Input>
+              <Input type="number" placeholder="No. of Guests"></Input>
             </div>
             <button type="submit">Check Availability</button>
           </form>

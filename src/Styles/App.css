@@ -1547,7 +1547,7 @@ button {
   }
 
   .popular__container {
-    padding-top: 3rem;
+    padding: 1rem;
   }
   .popular__card {
     width: 320px;

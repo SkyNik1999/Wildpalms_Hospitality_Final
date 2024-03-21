@@ -69,19 +69,7 @@ const Listing = () => {
           </div>
           <div className="guest-field">
             <label>Guest</label>
-            <NumberInput
-              defaultValue={0}
-              min={0}
-              max={100}
-              step={1}
-              onChange={setValue}
-            >
-              <NumberInputField />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>{' '}
+            <Input type="number" placeholder="No. of Guests"></Input>
           </div>
 
           <div>

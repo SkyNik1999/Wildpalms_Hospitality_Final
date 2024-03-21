@@ -10,7 +10,9 @@ const Popular = () => {
         <h2 className="section__title">
           Popular Residences<span>.</span>
         </h2>
+        <div className="popular__container">
         <ImageSwiper />
+        </div>
         <div className="wrapper">
           <Link to={'/listing'} className="contact__card-button2">
             See More
