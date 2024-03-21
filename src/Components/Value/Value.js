@@ -30,17 +30,19 @@ const Value = () => {
             </p>
           </div>
 
-          <div className="value__accordion"></div>
-          <Accordion allowToggle>
-            {valueData.map((e, i) => (
-              <AccordionTab
-                key={i}
-                icon={e.icon}
-                title={e.title}
-                content={e.content}
-              />
-            ))}
-          </Accordion>
+          <div className="value__accordion">
+            <Accordion allowToggle>
+              {valueData.map((e, i) => (
+                <AccordionTab
+                  key={i}
+                  icon={e.icon}
+                  title={e.title}
+                  content={e.content}
+                  style={{ marginBottom: '10px' }}
+                />
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
     </section>

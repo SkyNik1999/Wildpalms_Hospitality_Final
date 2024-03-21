@@ -45,7 +45,7 @@ const ImageSwiperComponent = ({ image, rate, location, type }) => {
   return (
     <article
       className="popular__card swiper-slide"
-      style={{ width: '300px', margin: '0' }}
+      style={{ width: '300px', marginBottom: '50px' }}
     >
       <img src={image} alt="aff" className="popular__img" />
 

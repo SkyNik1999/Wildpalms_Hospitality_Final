@@ -49,7 +49,3 @@ const AccordionTab = ({ icon = 'check', title, content }) => {
 };
 
 export default AccordionTab;
-
-<AccordionButton>
-  <AccordionIcon />
-</AccordionButton>;

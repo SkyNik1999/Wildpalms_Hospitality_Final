@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Input,
-  AspectRatio,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
+  Input
 } from '@chakra-ui/react';
 import siolim1 from '../Assets/3 bhk siolim/3bhk Siolim locations-02.png';
 import siolim2 from '../Assets/3 bhk siolim/3bhk Siolim locations-23.png';
@@ -108,19 +102,7 @@ const Detail = () => {
             </div>
             <div className="guest-field">
               <label>Guest</label>
-              <NumberInput
-                defaultValue={0}
-                min={0}
-                max={100}
-                step={1}
-                onChange={setValue}
-              >
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>{' '}
+              <Input type="number"></Input>
             </div>
             <button type="submit">Check Availability</button>
           </form>
@@ -158,9 +140,26 @@ const Detail = () => {
             groups.
           </p>
           <hr className="line" />
-          <AspectRatio ratio={16 / 9}>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2050.2044533843314!2d73.75598817577104!3d15.622264414935332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfeb3745c2efe9%3A0x4a4ba7a8507d3529!2sFalcon%20villa!5e0!3m2!1sen!2sin!4v1709104126395!5m2!1sen!2sin" />
-          </AspectRatio>
+
+          <div className="map">
+            <h3>
+              <i className="bx bx-map"></i> Location on map{' '}
+            </h3>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2050.2044533843314!2d73.75598817577104!3d15.622264414935332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfeb3745c2efe9%3A0x4a4ba7a8507d3529!2sFalcon%20villa!5e0!3m2!1sen!2sin!4v1709104126395!5m2!1sen!2sin"
+              width="600"
+              height="450"
+              style={{ border: '0' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <b>Siolim, Goa</b>
+            <p>
+              <i className="bx bxs-quote-alt-left"></i> It's like a home away
+              from home. <i className="bx bxs-quote-alt-right"></i>
+            </p>
+          </div>
 
           <hr className="line" />
 

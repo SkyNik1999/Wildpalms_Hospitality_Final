@@ -497,7 +497,6 @@ body.dark-theme {
 }
 .wrapper {
   text-align: center;
-  padding: 4rem 1rem 2rem;
 }
 
 /*=============== VALUE ===============*/
@@ -964,6 +963,10 @@ button {
   margin: 6px 3px;
 }
 
+  .small-details h2 {
+    font-size: 24px ;
+  }
+
 .house-price-1 h3 {
   font-weight: 500;
   text-align: right;
@@ -1109,6 +1112,10 @@ button {
 .host {
   display: flex;
   align-items: center;
+}
+
+.host h2 {
+  font-size: 24px;
 }
 
 .host img {
@@ -1583,6 +1590,7 @@ button {
   }
   .value__accordion-item {
     padding: 1.25rem 1.25rem 1.25rem 1rem;
+    margin-bottom: 1.5rem ;
   }
   .value__accordion-description {
     padding-bottom: 1rem;
