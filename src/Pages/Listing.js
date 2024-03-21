@@ -7,17 +7,17 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
 } from '@chakra-ui/react';
-import siolim1 from '../Assets/3 bhk siolim/3bhk Siolim locations-02.png'
-import sharayu from "../Assets/Sharayu/IMG20240126175345.jpg"
-import morjim from '../Assets/morjim/WP-MOR 1-02.png'
-import bhk from '../Assets/1bhk (1).png'
-import bhk5 from '../Assets/5bh.png'
-import screen from '../Assets/Screenshot 2024-02-11 190022.png'
-
+import { Link } from 'react-router-dom';
+import siolim1 from '../Assets/3 bhk siolim/3bhk Siolim locations-02.png';
+import sharayu from '../Assets/Sharayu/IMG20240126175345.jpg';
+import morjim from '../Assets/morjim/WP-MOR 1-02.png';
+import bhk from '../Assets/1bhk (1).png';
+import bhk5 from '../Assets/5bh.png';
+import screen from '../Assets/Screenshot 2024-02-11 190022.png';
 
 const Listing = () => {
   const propertyOptions = ['House', 'Cottage', 'Flat', 'Villa', 'Luxury Villa'];
-  const newDate = new Date().toISOString().split('T')[0]
+  const newDate = new Date().toISOString().split('T')[0];
 
   const [value, setValue] = useState(0);
   const [checkIn, setCheckIn] = useState(newDate);
@@ -69,7 +69,13 @@ const Listing = () => {
           </div>
           <div className="guest-field">
             <label>Guest</label>
-            <NumberInput defaultValue={0} min={0} max={100} step={1} onChange={setValue} >
+            <NumberInput
+              defaultValue={0}
+              min={0}
+              max={100}
+              step={1}
+              onChange={setValue}
+            >
               <NumberInputField />
               <NumberInputStepper>
                 <NumberIncrementStepper />
@@ -100,7 +106,7 @@ const Listing = () => {
                   type="checkbox"
                   value={option.value}
                   onChange={() => handleAmenities(option.key)}
-                  style={{width:'20px', height:'20px'}}
+                  style={{ width: '20px', height: '20px' }}
                 />
                 <label>{option.value}</label>
               </div>
@@ -117,11 +123,7 @@ const Listing = () => {
             </h2>
             <div className="house">
               <div className="house-img">
-                <img
-                  src={siolim1}
-                  alt=""
-                  className="src"
-                />
+                <img src={siolim1} alt="" className="src" />
               </div>
               <div className="house-info">
                 <p className="popular__description">Siolim, Goa</p>
@@ -148,20 +150,16 @@ const Listing = () => {
                   </h3>
                 </div>
                 <div className="wrapper2">
-                  <a href="/detail.html" className=" contact__card-button2">
+                  <Link className="contact__card-button2" to={'/details'}>
                     View Property
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
 
             <div className="house">
               <div className="house-img">
-                <img
-                  src={sharayu}
-                  alt=""
-                  className="src"
-                />
+                <img src={sharayu} alt="" className="src" />
               </div>
               <div className="house-info">
                 <p>Siolim, Goa</p>
@@ -199,11 +197,7 @@ const Listing = () => {
 
             <div className="house">
               <div className="house-img">
-                <img
-                  src={morjim}
-                  alt=""
-                  className="src"
-                />
+                <img src={morjim} alt="" className="src" />
               </div>
               <div className="house-info">
                 <p>Morjim, Goa</p>
@@ -241,11 +235,7 @@ const Listing = () => {
 
             <div className="house">
               <div className="house-img">
-                <img
-                  src={bhk}
-                  alt=""
-                  className="src"
-                />
+                <img src={bhk} alt="" className="src" />
               </div>
               <div className="house-info">
                 <p className="popular__description">Siolim, Goa</p>
@@ -360,11 +350,7 @@ const Listing = () => {
 
             <div className="house">
               <div className="house-img">
-                <img
-                  src={screen}
-                  alt=""
-                  className="src"
-                />
+                <img src={screen} alt="" className="src" />
               </div>
               <div className="house-info">
                 <p>Candolim, Goa</p>
@@ -403,11 +389,7 @@ const Listing = () => {
 
             <div className="house">
               <div className="house-img">
-                <img
-                  src={screen}
-                  alt=""
-                  className="src"
-                />
+                <img src={screen} alt="" className="src" />
               </div>
               <div className="house-info">
                 <p>Candolim, Goa</p>
