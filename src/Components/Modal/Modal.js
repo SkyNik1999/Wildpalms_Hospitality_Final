@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import ImageSwiper from '../Popular/ImageSwiper';
+import ImageSwiper from './ImageSwiper';
 
 const Modal = ({ isShowing, hide }) => {
   const modalRef = useRef(null);

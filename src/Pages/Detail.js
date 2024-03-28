@@ -1,31 +1,50 @@
-import React, { useState } from 'react';
-import {
-  Input
-} from '@chakra-ui/react';
-import siolim1 from '../Assets/3 bhk siolim/3bhk Siolim locations-02.png';
-import siolim2 from '../Assets/3 bhk siolim/3bhk Siolim locations-23.png';
-import siolim3 from '../Assets/3 bhk siolim/3bhk Siolim locations-06.png';
-import siolim4 from '../Assets/3 bhk siolim/3bhk Siolim locations-07.png';
-import siolim5 from '../Assets/3 bhk siolim/3bhk Siolim locations-17.png';
-import siolim6 from '../Assets/3 bhk siolim/3bhk Siolim locations-16.png';
+import React, { useState, useEffect } from 'react';
+import { Input } from '@chakra-ui/react';
+import { useParams } from 'react-router-dom';
 import nikhil from '../Assets/host/nikhil.jpg';
 import Modal from '../Components/Modal/Modal';
 import useModal from '../Components/Modal/useModal';
+import { getPropertyByKey } from '../ApiFunctions/Properties-Api';
+import {IoMdPhotos} from "react-icons/io"
+import { IoLocationSharp } from 'react-icons/io5';
+import { randomQuote } from '../data';
 
 const Detail = () => {
   const newDate = new Date().toISOString().split('T')[0];
+  const { key } = useParams();
+
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getPropertyByKey(key);
+        setData(response[0]);
+      } catch (error) {
+        console.error('Error fetching blog:', error.message);
+      }
+    };
+
+    fetchData();
+  }, [key]);
+
+  const handleGetLocation = () => {
+    window.open('https://wa.link/p4fzjj', '_blank');
+  };
 
   const [value, setValue] = useState(0);
   const { isShowing, toggle } = useModal();
   const [checkIn, setCheckIn] = useState(newDate);
   const [checkOut, setCheckOut] = useState(newDate);
+  const [showAllImages, setShowAllImages] = useState(false);
 
   return (
     <section className="section" id="Detail">
       <div className="house-details">
         <div className="house-title">
           <h2 className="section__title">
-            3BHK Villa in Siolim<span>.</span>
+            {data?.name}
+            <span>.</span>
           </h2>
           <div className="row">
             <div>
@@ -37,38 +56,49 @@ const Detail = () => {
               <span>245 Reviews</span>
             </div>
             <div>
-              <i className="bx bxs-map"></i> Siolim, Goa
+              <i className="bx bxs-map"></i>
+              {data?.location}
             </div>
           </div>
           <div className="gallery">
-            <div className="gallery-img-1">
-              <img src="https://drive.google.com/thumbnail?id=152gBT2Lg-SXb6rdBVbWSJo_RncshFfLz" />
-            </div>
-            <div>
-              <img src="https://photos.google.com/photo/AF1QipNyQ6rPnTDf_JWl-UMbP8kh-vSmedJhCT-FdaOd" />{' '}
-            </div>
-            <div>
-              <img src="https://drive.google.com/thumbnail?id=1x7kDrykyrFZ8Ca_CPhDsywp_5XmD8o3n" />
-            </div>
-            <div>
-              <img src={siolim4} />
-            </div>
-            <div>
-              <img src={siolim5} />
-            </div>
-            <div>
-              <img src={siolim6} />
-            </div>
+            {data?.pictures
+              ?.slice(0, showAllImages ? data?.pictures.length : 5)
+              .map((picture, index) => (
+                <div
+                  key={index}
+                  className={`${index === 0 ? `gallery-img-1` : ''}`}
+                >
+                  <img src={picture} loading="lazy" alt="Picture" />
+                </div>
+              ))}
+            {data?.pictures?.length > 5 && !showAllImages && (
+              <div className="blur-effect">
+                <div className="gallery-img-6">
+                  <img
+                    src={data?.pictures[5]}
+                    loading="lazy"
+                    alt="Blurred Picture"
+                    style={{
+                      border: '0',
+                      filter: 'blur(5px)',
+                    }}
+                  />
+                  <span className="see-more" onClick={toggle}>
+                    <IoMdPhotos className='see-more-icon'/>
+                    See More...
+                  </span>
+                </div>
+              </div>
+            )}
           </div>
-          <button onClick={toggle}>See More</button>
 
           <Modal isShowing={isShowing} hide={toggle} />
 
           <div className="small-details">
             <h2>Entire rental unit hosted by Wildpalms</h2>
-            <i className="bx bx-male-female"></i> 9 Pax
+            <i className="bx bx-male-female"></i> {data?.maxPeople} Pax
             <i className="bx bx-wind"></i> AC
-            <i className="bx bx-bed"></i> 3 Bed
+            <i className="bx bx-bed"></i> {data?.maxBed} Bed
             <i className="bx bx-bath"></i> 3 Bath
             <i className="bx bx-wifi"></i> WIFI <br />
             <i className="bx bx-restaurant"></i> Kitchen
@@ -77,7 +107,8 @@ const Detail = () => {
             <br />
             <div className="house-price-1">
               <h3>
-                ₹ 20,000<span>/night</span>
+                ₹ {data?.pricePerDay}
+                <span>/night</span>
               </h3>
             </div>
           </div>
@@ -132,35 +163,42 @@ const Detail = () => {
 
           <hr className="line" />
           <h2>Description</h2>
-          <p className="home-desc">
-            Guests will be allocateds on the ground floor according to
-            availability. You get a comfortable Two bedroom apartment. It has a
-            true luxury feeling. The price quoted is for two guest, at the guest
-            slot please mark the number of guests to get the exact price for
-            groups.
-          </p>
+          <p className="home-desc">{data?.description}</p>
           <hr className="line" />
 
           <div className="map">
             <h3>
               <i className="bx bx-map"></i> Location on map{' '}
             </h3>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2050.2044533843314!2d73.75598817577104!3d15.622264414935332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfeb3745c2efe9%3A0x4a4ba7a8507d3529!2sFalcon%20villa!5e0!3m2!1sen!2sin!4v1709104126395!5m2!1sen!2sin"
-              width="600"
-              height="450"
-              style={{ border: '0' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-            <b>Siolim, Goa</b>
+            <div className="blurred-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2050.2044533843314!2d73.75598817577104!3d15.622264414935332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfeb3745c2efe9%3A0x4a4ba7a8507d3529!2sFalcon%20villa!5e0!3m2!1sen!2sin!4v1709104126395!5m2!1sen!2sin"
+                width="400"
+                height="350"
+                style={{
+                  border: '0',
+                  filter: 'blur(5px)',
+                  pointerEvents: 'none',
+                }} // Apply blur effect
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+              {/* Button to get location */}
+              <button
+                className="get-location-button"
+                onClick={handleGetLocation}
+              >
+                <IoLocationSharp className="get-location-icon" size={25} />
+                Get Location
+              </button>
+            </div>
+            <b>{data?.location}</b>
             <p>
-              <i className="bx bxs-quote-alt-left"></i> It's like a home away
-              from home. <i className="bx bxs-quote-alt-right"></i>
+              <i className="bx bxs-quote-alt-left"></i> {randomQuote()}{' '}
+              <i className="bx bxs-quote-alt-right"></i>
             </p>
           </div>
-
           <hr className="line" />
 
           <div className="host">

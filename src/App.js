@@ -10,6 +10,7 @@ import HomePage from './Pages/HomePage';
 import Detail from './Pages/Detail';
 import Listing from './Pages/Listing';
 import ScrollTopBtn from './Components/ScrollTopBtn/ScrollTopBtn';
+import ScrollToTop from './Components/ScrollTopBtn/ScrollToTop';
 
 function App() {
   useEffect(() => {
@@ -41,11 +42,13 @@ function App() {
     <ChakraProvider theme={'light'}>
       <Router>
         <Header />
+        <ScrollToTop/>
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/home" element={<HomePage />} />
           <Route exact path="/details" element={<Detail />} />
           <Route exact path="/listing" element={<Listing />} />
+          <Route exact path='/details/:key' element={<Detail/>} />
         </Routes>
         <ScrollTopBtn />
         <Footer />

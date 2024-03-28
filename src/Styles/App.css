@@ -125,9 +125,9 @@ body.dark-theme {
 
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
-  max-width: 1024px;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  max-width: 85%;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .grid {
@@ -399,7 +399,7 @@ body.dark-theme {
 
 /*=============== POPULAR ===============*/
 .popular__container {
-  padding: 1rem 0 5rem;
+  padding-top: 1rem;
   gap: 1.5rem;
   grid-template-columns: repeat(2, 1fr);
 }
@@ -441,13 +441,43 @@ body.dark-theme {
 }
 
 .popular__description {
-  font-size: var(--small-font-size);
+  font-size: 0.95rem;
 }
 
 .popular__card:hover {
+  cursor: pointer;
   box-shadow: 0 12px 16px hsla(228, 66%, 45%, 0.1);
 }
 
+.info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.share-button {
+  display: flex;
+  height: 40px;
+  color: var(--title-color);
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 1rem;
+  background: var(--first-color-lighten);
+  padding: 10px 10px;
+  border-radius: 0.5rem;
+}
+
+.share-button:hover {
+  background-color: var(--first-color);
+  color: #fff;
+}
+
+.share-icon {
+  font-size: 1.2rem;
+}
 /* Swiper class */
 .swiper-button-prev:after,
 .swiper-button-next:after {
@@ -783,24 +813,21 @@ body.dark-theme {
 }
 
 .house-price {
-  text-align: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 10px;
 }
 
 .house-price h3 {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .house-price h3 span {
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 300;
 }
 
-.wrapper2 {
-  text-align: right;
-}
-.wrapper2 :hover i {
-  color: white;
-}
 .filter {
   display: flex;
   flex-wrap: wrap;
@@ -808,8 +835,6 @@ body.dark-theme {
   color: var(--text-color);
   margin-bottom: 10px;
 }
-
-
 
 .filter p {
   flex: 1;
@@ -856,7 +881,7 @@ body.dark-theme {
 /*=============== DETAIL PAGE ===============*/
 
 .house-details {
-  padding: 12%;
+  padding: 3% 12%;
 }
 
 .house-title .row {
@@ -867,7 +892,7 @@ body.dark-theme {
 }
 
 .house-title span {
-  margin: 0 20px;
+  margin: 0 5px;
 }
 
 .house-title i {
@@ -891,7 +916,38 @@ body.dark-theme {
 .gallery-img-1 {
   grid-area: first;
 }
+.gallery-img-6 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.gallery-img-6 img {
+  border: 0;
+  filter: blur(5px);
+}
+
+.see-more {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  gap: 5px;
+}
+
+.see-more-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+}
 
 .modal-overlay {
   position: fixed;
@@ -901,7 +957,7 @@ body.dark-theme {
   width: 100vw;
   height: 100vh;
   background-color: #000;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .modal-wrapper {
@@ -921,11 +977,11 @@ body.dark-theme {
 
 .modal {
   z-index: 100;
-  background: white;
   position: relative;
   margin: 1.75rem auto;
   border-radius: 3px;
-  max-width: 800px;
+  height: 400px;
+  max-width: 80%;
   padding: 2rem;
 }
 
@@ -934,27 +990,67 @@ body.dark-theme {
   justify-content: flex-end;
 }
 
+
 .modal-close-button {
   font-size: 1.4rem;
   font-weight: 700;
   line-height: 1;
   color: #000;
-  opacity: .3;
+  opacity: 0.3;
   cursor: pointer;
   border: none;
 }
 
+.modal__card {
+  width: 600px; /* Default width for small screens */
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__img {
+  border-radius: 1rem;
+  width: 100%; /* Ensure the image fills the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Adjust styles for medium screens */
+@media (min-width: 768px) {
+  .modal__card {
+    width: 400px;
+  }
+
+  .modal__img {
+    max-width: 100%; /* Allow the image to shrink if necessary */
+    max-height: 300px; /* Limit the image height for better layout */
+  }
+}
+
+/* Adjust styles for large screens */
+@media (min-width: 1024px) {
+  .modal__card {
+    width: 500px;
+  }
+
+  .modal__img {
+    max-width: 100%;
+    max-height: 380px;
+  }
+}
+
+
 button {
-  font-size: .9rem;
+  font-size: 0.9rem;
   font-weight: 700;
   border: none;
   border-radius: 3px;
-  padding: .3rem 1rem;
-  margin-left: .5rem;
+  padding: 0.3rem 1rem;
+  margin-left: 0.5rem;
 }
 
 .button-default {
-  background: #247BA0;
+  background: #247ba0;
   color: #fff;
 }
 .small-details i {
@@ -963,14 +1059,14 @@ button {
   margin: 6px 3px;
 }
 
-  .small-details h2 {
-    font-size: 24px ;
-  }
+.small-details h2 {
+  font-size: 24px;
+}
 
 .house-price-1 h3 {
   font-weight: 500;
   text-align: right;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .house-price-1 span {
@@ -998,7 +1094,7 @@ button {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  padding: 10px 50px;
+  padding: 10px 30px;
 }
 
 .filter-checkbox {
@@ -1011,7 +1107,7 @@ button {
 }
 
 .check-form div {
-  padding: 20px;
+  padding: 10px;
 }
 
 .check-form input {
@@ -1025,7 +1121,7 @@ button {
   outline: none;
   color: #fff;
   padding: 18px;
-  width: 350px;
+  width: 200px;
   border-radius: 8px;
   font-size: 16px;
 }
@@ -1033,9 +1129,10 @@ button {
 .guest-field {
   display: flex;
   flex-direction: column;
+  padding: 0;
 }
 
-.guest-field div  {
+.guest-field div {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1045,7 +1142,7 @@ button {
 }
 
 .guest-field .steppar-icon {
-  width: 40px
+  width: 40px;
 }
 
 .details-list {
@@ -1086,6 +1183,38 @@ button {
   margin: 50px 0;
 }
 
+.blurred-map {
+  position: relative;
+}
+
+.get-location-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  color: var(--first-color);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.get-location-button:hover {
+  background-color: var(--first-color);
+  color: white;
+}
+
+.get-location-icon {
+  height: 25px;
+  width: 25px;
+}
+
 .map i {
   top: 10px;
   font-size: 25px;
@@ -1109,6 +1238,13 @@ button {
   font-size: 25px;
 }
 
+.map .centered-button {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 10rem;
+}
+
 .host {
   display: flex;
   align-items: center;
@@ -1127,6 +1263,7 @@ button {
 .house h2 {
   margin-bottom: 10px;
   font-weight: 500;
+  font-size: 25px;
 }
 .host i {
   color: var(--first-color);
@@ -1191,6 +1328,11 @@ button {
 
   .contact-host {
     margin: 40px 0;
+  }
+
+  .get-location-icon {
+    height: 40px;
+    width: 40px;
   }
 }
 
@@ -1590,7 +1732,7 @@ button {
   }
   .value__accordion-item {
     padding: 1.25rem 1.25rem 1.25rem 1rem;
-    margin-bottom: 1.5rem ;
+    margin-bottom: 1.5rem;
   }
   .value__accordion-description {
     padding-bottom: 1rem;

@@ -1,7 +1,7 @@
 // TopScrollBtn.js
 
 import React, { useEffect, useState } from 'react';
-import { BsFillRocketFill } from 'react-icons/bs';
+import { LuPalmtree } from 'react-icons/lu';
 import './ScrollTopBtn.css';
 
 const ScrollTopBtn = () => {
@@ -13,7 +13,7 @@ const ScrollTopBtn = () => {
       const scrollY = window.scrollY || document.documentElement.scrollTop;
 
       // Show/hide the button based on the scroll position
-      setIsVisible(scrollY > 20);
+      setIsVisible(scrollY > 100);
     };
 
     // Attach the event listener
@@ -39,7 +39,7 @@ const ScrollTopBtn = () => {
       className={isVisible ? 'visible' : 'hidden'}
       onClick={scrollToTop}
     >
-      <BsFillRocketFill size={25} />
+      <LuPalmtree size={25} />
     </button>
   );
 };

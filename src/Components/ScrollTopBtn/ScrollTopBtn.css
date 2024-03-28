@@ -9,9 +9,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #ccc;
+  background-color: #2ac92a;
   color: #0c0c1d;
-  border-radius: 5px;
+  border-radius: 50%;
   cursor: pointer;
   opacity: 0;
   padding: 0;
@@ -28,10 +28,10 @@
 
 @media (max-width: 768px) {
   #scrollToTopBtn {
-    color: white;
-    background-color: #0c0c1d;
+    color: #0c0c1d;
+    background-color: #2ac92a;
     position: fixed; /* Ensure button stays in view */
-    bottom: 100px; /* Adjust the bottom position */
+    bottom: 120px; /* Adjust the bottom position */
     right: 20px; /* Adjust the right position */
     z-index: 1000; /* Ensure button is above other elements */
   }

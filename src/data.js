@@ -75,3 +75,34 @@ export const popularPropertyData = [
     location: 'Vagator, Goa',
   },
 ];
+
+
+export const randomQuote = () => {
+const quoteList = [
+  "It's like a home away from home",
+  'Find your sanctuary in our cozy abode.',
+  'Where every corner tells a story, welcome to your new home.',
+  'Live the dream, one room at a time.',
+  'Unlock the door to comfort and convenience.',
+  'Your perfect space awaits, just beyond the threshold.',
+  'Discover the essence of modern living in every room.',
+  'Embrace the warmth of a place you can truly call yours.',
+  'Every wall holds the promise of new beginnings.',
+  'Step into luxury, where every detail speaks of elegance.',
+  'Experience the joy of living in harmony with your surroundings.',
+  'Home is where memories are made and laughter never fades.',
+  'Let our properties be the canvas for your beautiful life.',
+  'Escape the ordinary and find solace in our extraordinary spaces.',
+  'From the doorstep to the rooftop, experience life at its finest.',
+  'Cherish the moments spent in a place you proudly call home.',
+  'Your comfort is our priority, welcome to your haven.',
+  'In our properties, every day feels like a fresh start.',
+  'Unwind in the tranquility of your own personal retreat.',
+  'Elevate your lifestyle in spaces designed for your every need.',
+  'Where every sunset paints a masterpiece outside your window.',
+];
+
+const randomIndex =  Math.floor(Math.random() * quoteList.length);
+
+  return quoteList[randomIndex];
+}

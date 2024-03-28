@@ -8,7 +8,6 @@ const SearchBar = () => {
   const handleChange = e => {
     e.preventDefault();
     setLocation(e.target.value);
-    console.log(location);
   };
 
   const handleClick = () => {

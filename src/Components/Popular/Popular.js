@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import ImageSwiper from './ImageSwiper';
 
 const Popular = () => {
+
   return (
     <section className="section" id="popular">
       <div className="container">
@@ -11,7 +12,7 @@ const Popular = () => {
           Popular Residences<span>.</span>
         </h2>
         <div className="popular__container">
-        <ImageSwiper />
+          <ImageSwiper />
         </div>
         <div className="wrapper">
           <Link to={'/listing'} className="contact__card-button2">
