@@ -16,7 +16,6 @@ const Listing = () => {
 
   const [value, setValue] = useState(0);
   const [data, setData] = useState([]);
-  const [url, setUrl] = useState('');
   const [checkIn, setCheckIn] = useState(newDate);
   const [checkOut, setCheckOut] = useState(newDate);
   const [selectedType, setSelectedType] = useState('');
@@ -53,7 +52,6 @@ const Listing = () => {
     // Assuming you have logic to get the URL of the next tab,
     // you can set it to nextTabUrl state
     const nextTabUrl = `${currentDomain}/details/${id}`;
-    setUrl(nextTabUrl);
 
     // Copy the URL to clipboard
     navigator.clipboard
@@ -113,11 +111,7 @@ const Listing = () => {
             {data?.map((e, i) => (
               <div className="house" key={i}>
                 <div className="house-img">
-                  <img
-                    src={e.pictures[0]}
-                    alt=""
-                    className="src"
-                  />
+                  <img src={e.pictures[0]} alt="" className="src" />
                 </div>
                 <div className="house-info">
                   <div className="info-container">
@@ -143,8 +137,8 @@ const Listing = () => {
                     <i className="bx bxs-star"></i>
                     <i className="bx bxs-star"></i>
                     <i className="bx bxs-star"></i>
-                    <i className="bx bxs-star-half"></i>
-                    <i className="bx bx-star"></i>
+                    <i className="bx bxs-star"></i>
+                    <i className="bx bxs-star"></i>
                   </div>
                   <div>4.5 out of 5</div>
                   <div className="house-price">

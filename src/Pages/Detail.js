@@ -6,8 +6,9 @@ import Modal from '../Components/Modal/Modal';
 import useModal from '../Components/Modal/useModal';
 import { getPropertyByKey } from '../ApiFunctions/Properties-Api';
 import {IoMdPhotos} from "react-icons/io"
-import { IoLocationSharp } from 'react-icons/io5';
+import { IoLocationSharp, IoShareOutline } from 'react-icons/io5';
 import { randomQuote } from '../data';
+
 
 const Detail = () => {
   const newDate = new Date().toISOString().split('T')[0];
@@ -38,21 +39,44 @@ const Detail = () => {
   const [checkOut, setCheckOut] = useState(newDate);
   const [showAllImages, setShowAllImages] = useState(false);
 
+  const handleShare = id => {
+
+      const currentDomain = window.location.origin;
+
+    // Assuming you have logic to get the URL of the next tab,
+    // you can set it to nextTabUrl state
+    const nextTabUrl = `${currentDomain}/details/${id}`;
+
+    // Copy the URL to clipboard
+    navigator.clipboard
+      .writeText(nextTabUrl)
+      .then(() => alert('Link copied to clipboard'))
+      .catch(error => console.error('Failed to copy:', error));
+  };
   return (
     <section className="section" id="Detail">
       <div className="house-details">
         <div className="house-title">
-          <h2 className="section__title">
-            {data?.name}
-            <span>.</span>
-          </h2>
+          <div className="house-title-div">
+            <h2 className="section__title">
+              {data?.name}
+              <span>.</span>
+            </h2>
+
+            <button
+              className="share-button"
+              onClick={() => handleShare(data?.key)}
+            >
+              <IoShareOutline className="share-icon" /> Share
+            </button>
+          </div>
           <div className="row">
             <div>
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star"></i>
-              <i className="bx bxs-star-half"></i>
-              <i className="bx bx-star"></i>
+              <i className="bx bxs-star"></i>
+              <i className="bx bxs-star"></i>
               <span>245 Reviews</span>
             </div>
             <div>
@@ -84,7 +108,7 @@ const Detail = () => {
                     }}
                   />
                   <span className="see-more" onClick={toggle}>
-                    <IoMdPhotos className='see-more-icon'/>
+                    <IoMdPhotos className="see-more-icon" />
                     See More...
                   </span>
                 </div>
@@ -99,11 +123,15 @@ const Detail = () => {
             <i className="bx bx-male-female"></i> {data?.maxPeople} Pax
             <i className="bx bx-wind"></i> AC
             <i className="bx bx-bed"></i> {data?.maxBed} Bed
-            <i className="bx bx-bath"></i> 3 Bath
+            <i className="bx bx-bath"></i> {data?.maxBath} Bath
             <i className="bx bx-wifi"></i> WIFI <br />
             <i className="bx bx-restaurant"></i> Kitchen
             <i className="bx bxs-car-garage"></i> Parking
-            <i className="bx bx-swim"></i> Pool
+            {data?.features?.isPool ? (
+              <>
+                <i className="bx bx-swim"></i> Pool
+              </>
+            ) : null}
             <br />
             <div className="house-price-1">
               <h3>

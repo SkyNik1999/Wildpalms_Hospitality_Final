@@ -883,7 +883,12 @@ body.dark-theme {
 .house-details {
   padding: 3% 12%;
 }
-
+.house-title-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 .house-title .row {
   display: flex;
   flex-wrap: wrap;
