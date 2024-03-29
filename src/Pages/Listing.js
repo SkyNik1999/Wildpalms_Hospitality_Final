@@ -2,19 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Input } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import { getAllProperties } from '../ApiFunctions/Properties-Api';
-import siolim1 from '../Assets/3 bhk siolim/3bhk Siolim locations-02.png';
-import sharayu from '../Assets/Sharayu/IMG20240126175345.jpg';
-import morjim from '../Assets/morjim/WP-MOR 1-02.png';
-import bhk from '../Assets/1bhk (1).png';
-import bhk5 from '../Assets/5bh.png';
-import screen from '../Assets/Screenshot 2024-02-11 190022.png';
 import { IoShareOutline } from 'react-icons/io5';
 
 const Listing = () => {
   const propertyOptions = ['House', 'Cottage', 'Flat', 'Villa', 'Luxury Villa'];
   const newDate = new Date().toISOString().split('T')[0];
 
-  const [value, setValue] = useState(0);
   const [data, setData] = useState([]);
   const [checkIn, setCheckIn] = useState(newDate);
   const [checkOut, setCheckOut] = useState(newDate);
@@ -22,12 +15,6 @@ const Listing = () => {
 
   const currentDomain = window.location.origin;
 
-  const [amenities, setAminities] = useState({
-    isAc: false,
-    isPool: false,
-    isKitchen: false,
-    isParking: false,
-  });
 
   useEffect(() => {
     const fetchData = async () => {

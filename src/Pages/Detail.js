@@ -33,7 +33,6 @@ const Detail = () => {
     window.open('https://wa.link/p4fzjj', '_blank');
   };
 
-  const [value, setValue] = useState(0);
   const { isShowing, toggle } = useModal();
   const [checkIn, setCheckIn] = useState(newDate);
   const [checkOut, setCheckOut] = useState(newDate);
@@ -92,7 +91,7 @@ const Detail = () => {
                   key={index}
                   className={`${index === 0 ? `gallery-img-1` : ''}`}
                 >
-                  <img src={picture} loading="lazy" alt="Picture" />
+                  <img src={picture} loading="lazy" alt="Property" />
                 </div>
               ))}
             {data?.pictures?.length > 5 && !showAllImages && (
@@ -101,7 +100,7 @@ const Detail = () => {
                   <img
                     src={data?.pictures[5]}
                     loading="lazy"
-                    alt="Blurred Picture"
+                    alt="Blurred"
                     style={{
                       border: '0',
                       filter: 'blur(5px)',
@@ -230,7 +229,7 @@ const Detail = () => {
           <hr className="line" />
 
           <div className="host">
-            <img src={nikhil} />
+            <img src={nikhil} alt='host' />
             <div>
               <h2>Hosted by Nikhil Gupta</h2>
               <p>
