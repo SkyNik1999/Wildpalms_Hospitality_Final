@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import ImageSwiper from './ImageSwiper';
+import Swiper from './Swiper';
 
 const Modal = ({ isShowing, hide }) => {
   const modalRef = useRef(null);
@@ -46,7 +46,7 @@ const Modal = ({ isShowing, hide }) => {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <ImageSwiper/>
+              <Swiper/>
             </div>
           </div>
         </React.Fragment>,

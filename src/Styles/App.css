@@ -1,6 +1,6 @@
 /*=============== GOOGLE FONTS ===============*/
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-@import url('https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css");
 
 /*=============== VARIABLES CSS ===============*/
 
@@ -23,7 +23,7 @@
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: 'Poppins', sans-serif;
+  --body-font: "Poppins", sans-serif;
   --biggest-font-size: 2.25rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
@@ -136,6 +136,14 @@ body.dark-theme {
 
 .section {
   padding: 4.5rem 0 2rem;
+}
+
+#home,
+#value,
+#contact,
+#subscribe {
+  display: flex;
+  justify-content: center;
 }
 
 .section__title {
@@ -481,7 +489,7 @@ body.dark-theme {
 /* Swiper class */
 .swiper-button-prev:after,
 .swiper-button-next:after {
-  content: '';
+  content: "";
 }
 
 .swiper-button-next,
@@ -510,6 +518,7 @@ body.dark-theme {
   font-size: var(--small-font-size);
   padding: 14px 0;
   width: 10rem;
+  height: 3rem;
   display: inline-flex;
   text-align: center;
   justify-content: center;
@@ -573,6 +582,7 @@ body.dark-theme {
   border: 2px solid var(--border-color);
   border-radius: 0.5rem;
   padding: 1rem 0.75rem;
+  margin-bottom: 1rem;
 }
 
 .value__accordion-header {
@@ -680,6 +690,8 @@ body.dark-theme {
 .contact__card-box {
   background-color: var(--body-color);
   border: 2px solid var(--border-color);
+  max-width: 192px;
+  min-width: 135px;
   padding: 1.25rem 0.75rem;
   border-radius: 0.5rem;
   transition: 0.3s;
@@ -820,14 +832,33 @@ body.dark-theme {
 }
 
 .house-price h3 {
-  font-size: 30px;
+  font-size: 2rem;
 }
 
 .house-price h3 span {
-  font-size: 18px;
+  font-size: 1.2rem;
   font-weight: 300;
 }
+/* Media queries for different screen sizes */
+@media (max-width: 768px) {
+  .house-price h3 {
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
 
+  .house-price h3 span {
+    font-size: 0.875rem; /* Adjust font size for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .house-price h3 {
+    font-size: 1.25rem; /* Further adjust font size for even smaller screens */
+  }
+
+  .house-price h3 span {
+    font-size: 0.75rem; /* Further adjust font size for even smaller screens */
+  }
+}
 .filter {
   display: flex;
   flex-wrap: wrap;
@@ -908,7 +939,7 @@ body.dark-theme {
 .gallery {
   display: grid;
   grid-gap: 10px;
-  grid-template-areas: 'first first..' 'first first..';
+  grid-template-areas: "first first.." "first first..";
   margin: 20px 0;
 }
 
@@ -983,18 +1014,15 @@ body.dark-theme {
 .modal {
   z-index: 100;
   position: relative;
-  margin: 1.75rem auto;
+  margin: 0 auto;
   border-radius: 3px;
-  height: 400px;
-  max-width: 80%;
-  padding: 2rem;
+  max-width: 90%;
 }
 
 .modal-header {
   display: flex;
   justify-content: flex-end;
 }
-
 
 .modal-close-button {
   font-size: 1.4rem;
@@ -1018,17 +1046,40 @@ body.dark-theme {
   border-radius: 1rem;
   width: 100%; /* Ensure the image fills the container */
   height: auto; /* Maintain aspect ratio */
+  margin: 0 0.5rem;
+}
+
+.Swipercode {
+  font-family: sans-serif;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.images-container {
+  display: flex;
+  overflow: scroll;
+  /* Add the following lines for smooth scrolling */
+  scroll-behavior: smooth;
+  transition: scroll 0.3s ease-in-out;
+}
+.nav-btn {
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  background-color: #c3c3c3;
+  border-radius: 50%;
+  font-size: 2rem;
+  margin: 5px;
 }
 
 /* Adjust styles for medium screens */
 @media (min-width: 768px) {
   .modal__card {
     width: 400px;
-  }
-
-  .modal__img {
-    max-width: 100%; /* Allow the image to shrink if necessary */
-    max-height: 300px; /* Limit the image height for better layout */
   }
 }
 
@@ -1043,7 +1094,6 @@ body.dark-theme {
     max-height: 380px;
   }
 }
-
 
 button {
   font-size: 0.9rem;
@@ -1294,14 +1344,14 @@ button {
     margin-top: 10px;
   }
   .gallery {
-    grid-template-areas: 'first first' '. .' '. .';
+    grid-template-areas: "first first" ". ." ". .";
   }
   .small-details h2 {
     font-size: 18px;
     margin-top: 24px;
   }
   .small-details i {
-    font-size: 10px;
+    font-size: 16px;
   }
   .small-details h3 {
     text-align: left;
