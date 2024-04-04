@@ -704,6 +704,15 @@ body.dark-theme {
   margin-bottom: 1.25rem;
 }
 
+
+@media (max-width: 768px) {
+  .contact__card-info {
+    column-gap: 0.2rem;
+  }
+
+}
+
+
 .contact__card i {
   padding: 6px;
   background-color: var(--first-color-lighten);
